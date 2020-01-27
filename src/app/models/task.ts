@@ -6,14 +6,14 @@ export class Task {
   /**
    * Description of the task
    */
-  public description: String;
+  public description: string;
 
   /**
    * Date of creation
    */
   public dateCreation: Date;
 
-  constructor(id: number, description: String) {
+  constructor(id: number, description: string) {
     this.id = id;
     this.description = description;
     this.dateCreation = new Date();
