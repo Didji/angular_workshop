@@ -36,8 +36,16 @@ export class AppComponent {
   }
 
   public addTask(description: string) {
-    let newId = Math.max.apply(null, this.tasks.map(function(o) { return o.id; })) + 1;
-    let newTask = new Task(newId, description);
+    let maxId =
+      this.tasks.length > 0
+        ? Math.max.apply(
+            null,
+            this.tasks.map(function(o) {
+              return o.id;
+            })
+          )
+        : 0;
+    let newTask = new Task(maxId + 1, description);
     this.tasks.push(newTask);
 
     // After adding the new task, we close the form
