@@ -34,6 +34,7 @@ export class AppComponent {
   public toggleCreateMode() {
     this.createMode = !this.createMode;
   }
+
   public addTask(description: string) {
     let newId = Math.max.apply(null, this.tasks.map(function(o) { return o.id; })) + 1;
     let newTask = new Task(newId, description);
@@ -41,5 +42,11 @@ export class AppComponent {
 
     // After adding the new task, we close the form
     this.toggleCreateMode();
+  }
+
+  public deleteTask(id: number) {
+    this.tasks = this.tasks.filter(function(task) {
+      return task.id !== id;
+    });
   }
 }
