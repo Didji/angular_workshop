@@ -11,9 +11,13 @@
   <tbody>
     <tr *ngFor="let task of tasks">
       <td>{{task.id}}</td>
-      <td>{{task.description}}</td>
+      <td><input [(ngModel)]="task.description" [disabled]="task != editedTask"></td>
       <td>{{task.dateCreation | date:'shortDate':'':'fr'}}</td>
-      <td><button (click)="editTask(task)">E</button><button (click)="deleteTask(task.id)">X</button></td>
+      <td>
+        <button (click)="toggleEditMode(task)" *ngIf="task != editedTask">E</button>
+        <button (click)="deleteTask(task.id)" *ngIf="task != editedTask">X</button>
+        <button (click)="toggleEditMode(task)" *ngIf="task == editedTask">V</button>
+      </td>
     </tr>
   </tbody>
 </table>

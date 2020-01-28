@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { registerLocaleData } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import localeFr from '@angular/common/locales/fr';
 import { NgModule } from '@angular/core';
 
@@ -15,7 +16,8 @@ registerLocaleData(localeFr, 'fr');
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

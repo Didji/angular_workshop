@@ -13,22 +13,14 @@ export class AppComponent {
   // Is the user creating a task?
   public createMode: boolean;
 
+  // The task being edited
+  public editedTask: Task;
+
   constructor() {}
 
   ngOnInit() {
     this.createMode = false;
-    this.tasks = [
-      {
-        id: 1,
-        description: "Coucou",
-        dateCreation: new Date()
-      },
-      {
-        id: 2,
-        description: "Bye bye",
-        dateCreation: new Date("2011-10-10")
-      }
-    ];
+    this.editedTask = null;
   }
 
   public toggleCreateMode() {
@@ -56,5 +48,9 @@ export class AppComponent {
     this.tasks = this.tasks.filter(function(task) {
       return task.id !== id;
     });
+  }
+
+  public toggleEditMode(task: Task) {
+    this.editedTask == task ? null : task;
   }
 }
